@@ -1,6 +1,6 @@
 import React from "react";
 import { ProductCardProps } from "../../types/ProductCardInterface";
-
+import BtnCounter from "../btnCounter/BtnCounter";
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className="rounded-md border shadow-md w-100 font-sans text-base mb-4">
@@ -27,8 +27,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </p>
         </div>
 
-        <div className="border rounded-md h-32 mt-5 ml-1">
-          <img src={product.images[0]} alt={product.title} className="w-32" />
+        <div className="border rounded-md h-32 mt-5 ml-1  ">
+          <img
+            src={product.images[0]}
+            alt={product.title}
+            className="w-32 h-32"
+          />
+          <div className="flex flex-col items-center justify-center w-32 text-center ">
+            <BtnCounter />
+          </div>
         </div>
       </div>
     </div>
