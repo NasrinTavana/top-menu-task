@@ -1,6 +1,10 @@
 import { AppProps } from "next/app";
 import "../styles/global.css";
 
-export default function MyApp({ Component, pageProps } : AppProps) {
-  return <Component {...pageProps} />;
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <div className="dark bg-gray-950 text-white min-h-screen">
+      <Component {...pageProps} />
+    </div>
+  );
 }
