@@ -1,9 +1,13 @@
 import React from "react";
 import { ProductCardProps } from "../../types/ProductCardInterface";
-import BtnCounter from "../btnCounter/BtnCounter";
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+import { BtnCounter } from "../../components";
+
+const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
   return (
-    <div className="rounded-md border shadow-md w-100 font-sans text-base mb-4">
+    <div
+      className="rounded-md border border-gray-950  w-full font-sans text-base mb-4"
+      style={{ boxShadow: "0 3px 5px rgba(0,0,0,0.4)" }}
+    >
       <div className="flex flex-row px-4">
         <div className="pt-0 pl-4 font-medium text-with absolute">
           {product.discountPercentage && (
@@ -27,14 +31,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </p>
         </div>
 
-        <div className="border rounded-md h-32 mt-5 ml-1  ">
+        <div className="border border-gray-950 rounded-md h-32 mt-5 ml-1  bg-gray-900 ">
           <img
             src={product.images[0]}
             alt={product.title}
-            className="w-32 h-32"
+            width={130}
+            height={130}
+            className="rounded-md object-cover"
           />
+
           <div className="flex flex-col items-center justify-center w-32 text-center ">
-            <BtnCounter />
+            <BtnCounter
+              txtBtn=" "
+              onChange={(count) => onAddToCart(product, count)}
+            />
           </div>
         </div>
       </div>
