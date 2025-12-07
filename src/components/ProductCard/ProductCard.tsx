@@ -1,6 +1,7 @@
 import React from "react";
 import { ProductCardProps } from "../../types/ProductCardInterface";
 import { BtnCounter } from "../../components";
+import Link from "next/link";
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
   return (
@@ -32,14 +33,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
         </div>
 
         <div className="border border-gray-950 rounded-md h-32 mt-5 ml-1  bg-gray-900 ">
-          <img
-            src={product.images[0]}
-            alt={product.title}
-            width={130}
-            height={130}
-            className="rounded-md object-cover"
-          />
-
+          <Link href={`/products/${product.id}`}>
+            <img
+              src={product.images[0]}
+              alt={product.title}
+              width={130}
+              height={130}
+              className="rounded-md object-cover"
+            />
+          </Link>
           <div className="flex flex-col items-center justify-center w-32 text-center ">
             <BtnCounter
               txtBtn=" "
